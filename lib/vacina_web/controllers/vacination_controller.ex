@@ -23,6 +23,10 @@ defmodule VacinaWeb.VacinationController do
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
+
+      {:error, :person_not_found} ->
+        changeset = Vacines.change_vacination(%Vacination{})
+        conn |> put_flash(:error, "Cpf inválido") |> render("new.html",changeset: changeset)
     end
   end
 

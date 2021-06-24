@@ -102,6 +102,13 @@ defmodule Vacina.Vacines do
     Person.changeset(person, attrs)
   end
 
+  def get_person_by_cpf(cpf) do
+    case Repo.get_by(Person, cpf: cpf) do
+      nil -> {:error, :person_not_found}
+      person -> {:ok, person}
+    end
+  end
+
   alias Vacina.Vacines.Vacination
 
   @doc """
@@ -146,9 +153,13 @@ defmodule Vacina.Vacines do
 
   """
   def create_vacination(attrs \\ %{}) do
-    %Vacination{}
-    |> Vacination.changeset(attrs)
-    |> Repo.insert()
+    with {:ok, %{id: vacinado}} <- get_person_by_cpf(attrs["cpf"]) do
+      attrs = Map.put(attrs, "vacinado", vacinado)
+
+      %Vacination{}
+      |> Vacination.changeset(attrs)
+      |> Repo.insert()
+    end
   end
 
   @doc """

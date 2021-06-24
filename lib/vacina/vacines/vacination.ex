@@ -15,7 +15,8 @@ defmodule Vacina.Vacines.Vacination do
   @doc false
   def changeset(vacination, attrs) do
     vacination
-    |> cast(attrs, [:lote, :data, :aplicador])
+    |> cast(attrs, [:lote, :data, :aplicador, :vacinado])
     |> validate_required([:lote, :data, :aplicador])
+    #|> foreign_key_constraint(:vacinado)
   end
 end

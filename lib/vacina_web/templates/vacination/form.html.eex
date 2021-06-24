@@ -17,6 +17,10 @@
   <%= text_input f, :aplicador %>
   <%= error_tag f, :aplicador %>
 
+  <%= label f, :cpf %>
+  <%= text_input f, :cpf %>
+  <%= error_tag f, :cpf %>
+
   <div>
     <%= submit "Save" %>
   </div>
