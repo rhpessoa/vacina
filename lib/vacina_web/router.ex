@@ -17,6 +17,7 @@ defmodule VacinaWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/vacines", VacineController
   end
 
   # Other scopes may use custom stacks.
