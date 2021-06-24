@@ -19,6 +19,7 @@ defmodule VacinaWeb.Router do
     get "/", PageController, :index
     resources "/vacines", VacineController
     resources "/persons", PersonController
+    resources "/vacinations", VacinationController
   end
 
   # Other scopes may use custom stacks.

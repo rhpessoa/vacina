@@ -1,0 +1,30 @@
+<h1>Listing Vacinations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lote</th>
+      <th>Data</th>
+      <th>Aplicador</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for vacination <- @vacinations do %>
+    <tr>
+      <td><%= vacination.lote %></td>
+      <td><%= vacination.data %></td>
+      <td><%= vacination.aplicador %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.vacination_path(@conn, :show, vacination) %></span>
+        <span><%= link "Edit", to: Routes.vacination_path(@conn, :edit, vacination) %></span>
+        <span><%= link "Delete", to: Routes.vacination_path(@conn, :delete, vacination), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Vacination", to: Routes.vacination_path(@conn, :new) %></span>

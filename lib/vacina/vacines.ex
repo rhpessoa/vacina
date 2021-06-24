@@ -101,4 +101,100 @@ defmodule Vacina.Vacines do
   def change_person(%Person{} = person, attrs \\ %{}) do
     Person.changeset(person, attrs)
   end
+
+  alias Vacina.Vacines.Vacination
+
+  @doc """
+  Returns the list of vacinations.
+
+  ## Examples
+
+      iex> list_vacinations()
+      [%Vacination{}, ...]
+
+  """
+  def list_vacinations do
+    Repo.all(Vacination)
+  end
+
+  @doc """
+  Gets a single vacination.
+
+  Raises `Ecto.NoResultsError` if the Vacination does not exist.
+
+  ## Examples
+
+      iex> get_vacination!(123)
+      %Vacination{}
+
+      iex> get_vacination!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_vacination!(id), do: Repo.get!(Vacination, id)
+
+  @doc """
+  Creates a vacination.
+
+  ## Examples
+
+      iex> create_vacination(%{field: value})
+      {:ok, %Vacination{}}
+
+      iex> create_vacination(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_vacination(attrs \\ %{}) do
+    %Vacination{}
+    |> Vacination.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a vacination.
+
+  ## Examples
+
+      iex> update_vacination(vacination, %{field: new_value})
+      {:ok, %Vacination{}}
+
+      iex> update_vacination(vacination, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_vacination(%Vacination{} = vacination, attrs) do
+    vacination
+    |> Vacination.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a vacination.
+
+  ## Examples
+
+      iex> delete_vacination(vacination)
+      {:ok, %Vacination{}}
+
+      iex> delete_vacination(vacination)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_vacination(%Vacination{} = vacination) do
+    Repo.delete(vacination)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking vacination changes.
+
+  ## Examples
+
+      iex> change_vacination(vacination)
+      %Ecto.Changeset{data: %Vacination{}}
+
+  """
+  def change_vacination(%Vacination{} = vacination, attrs \\ %{}) do
+    Vacination.changeset(vacination, attrs)
+  end
 end

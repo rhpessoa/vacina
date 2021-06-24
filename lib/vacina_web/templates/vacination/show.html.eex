@@ -1,0 +1,23 @@
+<h1>Show Vacination</h1>
+
+<ul>
+
+  <li>
+    <strong>Lote:</strong>
+    <%= @vacination.lote %>
+  </li>
+
+  <li>
+    <strong>Data:</strong>
+    <%= @vacination.data %>
+  </li>
+
+  <li>
+    <strong>Aplicador:</strong>
+    <%= @vacination.aplicador %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.vacination_path(@conn, :edit, @vacination) %></span>
+<span><%= link "Back", to: Routes.vacination_path(@conn, :index) %></span>

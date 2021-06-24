@@ -1,0 +1,5 @@
+<h1>Edit Vacination</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.vacination_path(@conn, :update, @vacination)) %>
+
+<span><%= link "Back", to: Routes.vacination_path(@conn, :index) %></span>
