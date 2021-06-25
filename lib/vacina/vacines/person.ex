@@ -14,5 +14,6 @@ defmodule Vacina.Vacines.Person do
     person
     |> cast(attrs, [:nome, :cpf])
     |> validate_required([:nome, :cpf])
+    |> validate_length(:cpf, is: 11)
   end
 end
