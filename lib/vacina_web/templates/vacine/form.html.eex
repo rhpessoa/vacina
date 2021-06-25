@@ -13,11 +13,11 @@
   <%= text_input f, :fabricante %>
   <%= error_tag f, :fabricante %>
 
-  <%= label f, :descricao %>
+  <%= label f, :descrição %>
   <%= text_input f, :descricao %>
   <%= error_tag f, :descricao %>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Salvar" %>
   </div>
 <% end %>

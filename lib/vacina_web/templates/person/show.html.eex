@@ -1,4 +1,4 @@
-<h1>Show Person</h1>
+<h1>Mostrar pessoa</h1>
 
 <ul>
 
@@ -8,11 +8,11 @@
   </li>
 
   <li>
-    <strong>Cpf:</strong>
+    <strong>CPF:</strong>
     <%= @person.cpf %>
   </li>
 
 </ul>
 
-<span><%= link "Edit", to: Routes.person_path(@conn, :edit, @person) %></span>
-<span><%= link "Back", to: Routes.person_path(@conn, :index) %></span>
+<span><%= link "Editar", to: Routes.person_path(@conn, :edit, @person) %></span>
+<span><%= link "Voltar", to: Routes.person_path(@conn, :index) %></span>

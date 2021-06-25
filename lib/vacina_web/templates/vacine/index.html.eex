@@ -1,11 +1,11 @@
-<h1>Listing Vacines</h1>
+<h1>Lista de vacinas</h1>
 
 <table>
   <thead>
     <tr>
       <th>Nome</th>
       <th>Fabricante</th>
-      <th>Descricao</th>
+      <th>Descrição</th>
 
       <th></th>
     </tr>
@@ -18,13 +18,13 @@
       <td><%= vacine.descricao %></td>
 
       <td>
-        <span><%= link "Show", to: Routes.vacine_path(@conn, :show, vacine) %></span>
-        <span><%= link "Edit", to: Routes.vacine_path(@conn, :edit, vacine) %></span>
-        <span><%= link "Delete", to: Routes.vacine_path(@conn, :delete, vacine), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        <span><%= link "Mostrar", to: Routes.vacine_path(@conn, :show, vacine) %></span>
+        <span><%= link "Editar", to: Routes.vacine_path(@conn, :edit, vacine) %></span>
+        <span><%= link "Deletar", to: Routes.vacine_path(@conn, :delete, vacine), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Vacine", to: Routes.vacine_path(@conn, :new) %></span>
+<span><%= link "Adicionar vacina", to: Routes.vacine_path(@conn, :new) %></span>

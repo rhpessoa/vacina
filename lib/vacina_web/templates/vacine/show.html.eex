@@ -1,4 +1,4 @@
-<h1>Show Vacine</h1>
+<h1>Mostrar Vacina</h1>
 
 <ul>
 
@@ -19,5 +19,5 @@
 
 </ul>
 
-<span><%= link "Edit", to: Routes.vacine_path(@conn, :edit, @vacine) %></span>
-<span><%= link "Back", to: Routes.vacine_path(@conn, :index) %></span>
+<span><%= link "Editar", to: Routes.vacine_path(@conn, :edit, @vacine) %></span>
+<span><%= link "Voltar", to: Routes.vacine_path(@conn, :index) %></span>

@@ -5,23 +5,23 @@
     </div>
   <% end %>
 
-  <%= label f, :lote %>
+  <%= label f, :Lote %>
   <%= text_input f, :lote %>
   <%= error_tag f, :lote %>
 
-  <%= label f, :data %>
-  <%= date_select f, :data %>
+  <%= label f, :Data %>
+   <%= text_input f, :data, placeholder: "2000-12-31"%>
   <%= error_tag f, :data %>
 
-  <%= label f, :aplicador %>
+  <%= label f, :Aplicador %>
   <%= text_input f, :aplicador %>
   <%= error_tag f, :aplicador %>
 
-  <%= label f, :cpf %>
+  <%= label f, :CPF %>
   <%= text_input f, :cpf %>
   <%= error_tag f, :cpf %>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Salvar" %>
   </div>
 <% end %>
