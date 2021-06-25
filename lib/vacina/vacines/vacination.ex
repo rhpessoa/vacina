@@ -17,6 +17,17 @@ defmodule Vacina.Vacines.Vacination do
     vacination
     |> cast(attrs, [:lote, :data, :aplicador, :vacinado])
     |> validate_required([:lote, :data, :aplicador])
-    #|> foreign_key_constraint(:vacinado)
+    |> validate_change(:data,&validate_date(&1,&2))
+    # |> foreign_key_constraint(:vacinado)
+  end
+
+  def validate_date(_type, data) do
+    today = Date.utc_today()
+    date_diff = Date.diff(today, data)
+    if date_diff >= 43800 || date_diff < 0 do
+      [data: "data inválida"]
+    else
+      []
+    end
   end
 end
