@@ -20,7 +20,8 @@
   <%= label f, :CPF %>
   <%= text_input f, :cpf %>
   <%= error_tag f, :cpf %>
-
+  <%= label f, :Vacinas %>
+  <%= select(f, :vacine, Enum.map(@vacines, &{&1.nome, &1.id})) %>
   <div>
     <%= submit "Salvar" %>
   </div>

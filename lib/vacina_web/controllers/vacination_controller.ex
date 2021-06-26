@@ -3,6 +3,7 @@ defmodule VacinaWeb.VacinationController do
 
   alias Vacina.Vacines
   alias Vacina.Vacines.Vacination
+  alias Vacina.Vacination, as: VacinationContext
 
   def index(conn, _params) do
     vacinations = Vacines.list_vacinations()
@@ -11,7 +12,7 @@ defmodule VacinaWeb.VacinationController do
 
   def new(conn, _params) do
     changeset = Vacines.change_vacination(%Vacination{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, vacines: VacinationContext.list_vacines())
   end
 
   def create(conn, %{"vacination" => vacination_params}) do
@@ -22,11 +23,14 @@ defmodule VacinaWeb.VacinationController do
         |> redirect(to: Routes.vacination_path(conn, :show, vacination))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "new.html", changeset: changeset, vacines: VacinationContext.list_vacines())
 
       {:error, :person_not_found} ->
         changeset = Vacines.change_vacination(%Vacination{})
-        conn |> put_flash(:error, "Cpf inválido") |> render("new.html",changeset: changeset)
+
+        conn
+        |> put_flash(:error, "Cpf inválido")
+        |> render("new.html", changeset: changeset, vacines: Vacination.list_vacines())
     end
   end
 
@@ -52,6 +56,13 @@ defmodule VacinaWeb.VacinationController do
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", vacination: vacination, changeset: changeset)
+
+      {:error, :person_not_found} ->
+        changeset = Vacines.change_vacination(%Vacination{})
+
+        conn
+        |> put_flash(:error, "Cpf inválido")
+        |> render("new.html", changeset: changeset, vacines: VacinationContext.list_vacines())
     end
   end
 

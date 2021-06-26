@@ -174,10 +174,14 @@ defmodule Vacina.Vacines do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_vacination(%Vacination{} = vacination, attrs) do
-    vacination
-    |> Vacination.changeset(attrs)
-    |> Repo.update()
+  def update_vacination(vacination,attrs \\ %{}) do
+    with {:ok, %{id: vacinado}} <- get_person_by_cpf(attrs["cpf"]) do
+      attrs = Map.put(attrs, "vacinado", vacinado)
+
+      vacination
+      |> Vacination.changeset(attrs)
+      |> Repo.update()
+    end
   end
 
   @doc """

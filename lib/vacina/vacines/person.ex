@@ -13,6 +13,7 @@ defmodule Vacina.Vacines.Person do
   def changeset(person, attrs) do
     person
     |> cast(attrs, [:nome, :cpf])
+    |> unique_constraint(:cpf)
     |> validate_required([:nome, :cpf])
     |> validate_length(:cpf, is: 11)
   end

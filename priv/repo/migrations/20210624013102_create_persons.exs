@@ -8,6 +8,6 @@ defmodule Vacina.Repo.Migrations.CreatePersons do
 
       timestamps()
     end
-
+    create unique_index(:persons, [:cpf])
   end
 end
