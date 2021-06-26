@@ -14,7 +14,7 @@
   <div>
   <%= Enum.map @person.vacinas, fn vacina -> %>
   <li>
-    <strong>Nome:</strong>
+    <strong>Vacina:</strong>
     <%= vacina.nome %>
   </li>
   <% end %>
@@ -22,5 +22,4 @@
 
 </ul>
 
-<span><%= link "Editar", to: Routes.person_path(@conn, :edit, @person) %></span>
 <span><%= link "Voltar", to: Routes.person_path(@conn, :index) %></span>

@@ -10,7 +10,7 @@
   <%= error_tag f, :nome %>
 
   <%= label f, :CPF %>
-  <%= text_input f, :cpf %>
+  <%= text_input f, :cpf, placeholder: "00000000001" %>
   <%= error_tag f, :cpf %>
 
   <div>

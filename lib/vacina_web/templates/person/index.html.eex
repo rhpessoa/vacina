@@ -16,7 +16,7 @@
       <td><%= person.cpf %></td>
 
       <td>
-        <span><%= link "Mostrar", to: Routes.person_path(@conn, :show, person) %></span>
+        <span><%= link "Mostrar vacinas aplicadas", to: Routes.person_path(@conn, :show, person) %></span>
         <span><%= link "Editar", to: Routes.person_path(@conn, :edit, person) %></span>
         <span><%= link "Deletar", to: Routes.person_path(@conn, :delete, person), method: :delete, data: [confirm: "Você tem certeza?"] %></span>
       </td>
