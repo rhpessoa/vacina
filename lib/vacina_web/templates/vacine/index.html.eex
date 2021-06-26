@@ -28,3 +28,9 @@
 </table>
 
 <span><%= link "Adicionar vacina", to: Routes.vacine_path(@conn, :new) %></span>
+<form
+action="http://localhost:4000/vacinations",
+style="text-align:center;"
+>
+    <input type="submit" value="Carteira de vacinação" />
+</form>

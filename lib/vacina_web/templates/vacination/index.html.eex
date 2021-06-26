@@ -28,3 +28,22 @@
 </table>
 
 <span><%= link "Nova vacinação", to: Routes.vacination_path(@conn, :new) %></span>
+
+
+
+<div style="
+  display: flex;
+  justify-content: center;
+">
+<div style="padding: 5%; ">
+<form action="http://localhost:4000/persons",
+style="text-align:center;" >
+<input type="submit" value="Lista de pessoas" /> </form>
+</div>
+
+<div  style="padding: 5%; >
+<form action="http://localhost:4000/vacines",
+style="text-align:center;" >
+<input type="submit" value="Lista de vacinas " /> </form>
+</div>
+</div>
