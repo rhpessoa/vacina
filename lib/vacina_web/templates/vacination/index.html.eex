@@ -41,9 +41,8 @@ style="text-align:center;" >
 <input type="submit" value="Lista de pessoas" /> </form>
 </div>
 
-<div  style="padding: 5%; >
+<div style="padding: 5%; ">
 <form action="http://localhost:4000/vacines",
 style="text-align:center;" >
-<input type="submit" value="Lista de vacinas " /> </form>
-</div>
+<input type="submit" value="Lista de pessoas" /> </form>
 </div>
