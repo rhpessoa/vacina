@@ -11,6 +11,14 @@
     <strong>CPF:</strong>
     <%= @person.cpf %>
   </li>
+  <div>
+  <%= Enum.map @person.vacinas, fn vacina -> %>
+  <li>
+    <strong>Nome:</strong>
+    <%= vacina.nome %>
+  </li>
+  <% end %>
+  </div>
 
 </ul>
 

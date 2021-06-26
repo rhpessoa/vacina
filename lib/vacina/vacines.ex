@@ -7,6 +7,7 @@ defmodule Vacina.Vacines do
   alias Vacina.Repo
 
   alias Vacina.Vacines.Person
+  alias Vacina.Vacination, as: VacinationContext
 
   @doc """
   Returns the list of persons.
@@ -35,7 +36,16 @@ defmodule Vacina.Vacines do
       ** (Ecto.NoResultsError)
 
   """
-  def get_person!(id), do: Repo.get!(Person, id)
+  def get_person!(id) do
+    person = Repo.get!(Person, id)
+
+    vacinas =
+      person.id
+      |> get_vacinations_by_id()
+      |> Enum.map(fn vacination -> VacinationContext.get_vacine!(vacination.id) end)
+
+    Map.put(person, :vacinas, vacinas)
+  end
 
   @doc """
   Creates a person.
@@ -174,7 +184,7 @@ defmodule Vacina.Vacines do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_vacination(vacination,attrs \\ %{}) do
+  def update_vacination(vacination, attrs \\ %{}) do
     with {:ok, %{id: vacinado}} <- get_person_by_cpf(attrs["cpf"]) do
       attrs = Map.put(attrs, "vacinado", vacinado)
 
@@ -211,5 +221,11 @@ defmodule Vacina.Vacines do
   """
   def change_vacination(%Vacination{} = vacination, attrs \\ %{}) do
     Vacination.changeset(vacination, attrs)
+  end
+
+  def get_vacinations_by_id(person_id) do
+    Vacination
+    |> where([v], v.vacinado == ^person_id)
+    |> Repo.all()
   end
 end
